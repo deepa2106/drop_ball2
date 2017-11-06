@@ -1,5 +1,6 @@
 body {
   background-color: grey;
+  border: 5px solid black;
 }
 
 .space {
@@ -8,7 +9,7 @@ body {
 }
 
 .gap {
-  background-color: blue;
+  background-color: grey;
   height: 5px;
 }
 
