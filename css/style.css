@@ -1,27 +1,18 @@
 body {
-  background-color: red;
-}
-
-.game {
   background-color: grey;
-}
-
-.gameScreen {
-  background-color: grey;
-  width: 1000px;
-  height: 600px;
-  margin: auto;
 }
 
 .space {
-  background-color: grey;
-  width: 1000px;
+
   height: 95px;
-  margin: auto;
+}
+
+.gap {
+  background-color: blue;
+  height: 5px;
 }
 
 .line {
   background-color: black;
   height: 5px;
-  position: relative;
 }
