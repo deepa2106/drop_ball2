@@ -2,6 +2,10 @@ body {
   background-color: red;
 }
 
+.game {
+  background-color: grey;
+}
+
 .gameScreen {
   background-color: grey;
   width: 1000px;
@@ -20,21 +24,4 @@ body {
   background-color: black;
   height: 5px;
   position: relative;
-}
-
-.line:before {
-  content:'';
-  background-color: black;
-  width: 30%;
-  height: 5px;
-  position: absolute;
-}
-
-.line:after {
-  content:'';
-  background-color: blue;
-  width: 10%;
-  height: 5px;
-  position: absolute;
-  float: right;
 }
