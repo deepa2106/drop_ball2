@@ -8,3 +8,10 @@ body {
   height: 600px;
   margin: auto;
 }
+
+.space {
+  background-color: grey;
+  width: 1000px;
+  height: 95px;
+  margin: auto;
+}
