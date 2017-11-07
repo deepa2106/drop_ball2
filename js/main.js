@@ -3,11 +3,14 @@ $(function() {
   var score=0;
 
 
-
-
   function reset() {
+    location.reload();
     score = 0;
-    $(".line").animate({top: '-1500px'}, 12000);
+    start();
+  }
+
+  function start() {
+    $(".line").animate({top: '-3000px'}, 24000);
   }
 
   function collision($circle) {
@@ -29,12 +32,14 @@ $(function() {
     var line2Top = $line2.offsetTop;
     var line2Height = $line2.offsetHeight;
     var line2Bottom = line2Top + line2Height;
-    console.log("i-value: " + score);
+    console.log("line1Top: " + line1Top);
+      console.log("line2Top: " + line2Top);
+      console.log("circleBottom: " + circleBottom);
     if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
       score++;
-    } else if (circleBottom < line1Top && circleBottom < line2Top) {
+    } else if (circleBottom <= line1Top && circleBottom <= line2Top) {
       return score;
-    } else if(circleLeft > line1Right && circleRight < line2Left) {
+    } else if(circleLeft >= line1Right && circleRight <= line2Left) {
       return score;
     } else {
       alert("Game over");
@@ -54,7 +59,7 @@ $(function() {
       $(".circle").animate({marginLeft: "+=35px"}, 1 );
     }
   });
-  reset();
+  start();
 });
 
   var lines = {}
