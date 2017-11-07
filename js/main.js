@@ -1,7 +1,7 @@
 $(function() {
   console.log("DOM is loaded");
   function reset() {
-    $(".line").animate({top: '-1500px'}, 10000);
+    $(".line").animate({top: '-1500px'}, 12000);
   }
 
   $(document).keydown(function(e) {
