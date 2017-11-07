@@ -32,9 +32,9 @@ $(function() {
     if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
       score++;
     } else if (circleBottom < line1Top && circleBottom < line2Top) {
-      return false;
+      return score;
     } else if(circleLeft > line1Right && circleRight < line2Left) {
-      return false;
+      return score;
     } else {
       return true;
     }
