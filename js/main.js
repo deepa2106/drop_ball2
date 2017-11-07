@@ -7,11 +7,11 @@ $(function() {
   $(document).keydown(function(e) {
     if(e.keyCode == 37){
       console.log("left");
-      $(".circle").animate({marginLeft: "-=15px"}, 5 );
+      $(".circle").animate({marginLeft: "-=35px"}, 1 );
     }
     if(e.keyCode == 39){
       console.log("right");
-      $(".circle").animate({marginLeft: "+=15px"}, 5 );
+      $(".circle").animate({marginLeft: "+=35px"}, 1 );
     }
   });
   reset();
