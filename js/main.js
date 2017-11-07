@@ -6,6 +6,7 @@ $(function() {
 
 
   function reset() {
+    score = 0;
     $(".line").animate({top: '-1500px'}, 12000);
   }
 
@@ -36,7 +37,8 @@ $(function() {
     } else if(circleLeft > line1Right && circleRight < line2Left) {
       return score;
     } else {
-      return true;
+      alert("Game over");
+      reset();
     }
   }
 
