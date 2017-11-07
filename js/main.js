@@ -1,6 +1,6 @@
 $(function() {
   console.log("DOM is loaded");
-  var i=parseInt(0);
+  var score=0;
 
 
 
@@ -10,8 +10,8 @@ $(function() {
   }
 
   function collision($circle) {
-    var $line1 = $('.1')[i];
-    var $line2 = $('.2')[i];
+    var $line1 = $('.1')[score];
+    var $line2 = $('.2')[score];
     var circleLeft = $circle.offset().left;
     var circleTop = $circle.offset().top;
     var circleHeight = $circle.outerHeight(true);
@@ -28,9 +28,9 @@ $(function() {
     var line2Top = $line2.offsetTop;
     var line2Height = $line2.offsetHeight;
     var line2Bottom = line2Top + line2Height;
-    console.log("i-value: " + i);
+    console.log("i-value: " + score);
     if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
-      i++;
+      score++;
     } else if (circleBottom < line1Top && circleBottom < line2Top) {
       return false;
     } else if(circleLeft > line1Right && circleRight < line2Left) {
