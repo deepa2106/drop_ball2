@@ -1,0 +1,38 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+  background-color: grey;
+  border: 5px solid black;
+}
+
+.space {
+
+  height: 195px;
+}
+
+.gap {
+  background-color: grey;
+  height: 5px;
+}
+
+.line {
+  background-color: black;
+  height: 5px;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 30px;
+  position:absolute;
+  top:4%;
+  left:50%;
+}
+
+p {
+  font-size: 50px;
+}
