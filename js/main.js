@@ -11,8 +11,6 @@ $(function() {
     score = 0;
     // Reset animation time back to 24000ms
     time = 24000;
-    // Start animation for the game
-    start();
   }
 
   // Function to start the transition of the lines
@@ -48,9 +46,9 @@ $(function() {
     if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
       // Adds 1 to score when it passes through the gap
       score++;
-    } else if (circleBottom <= line1Top && circleBottom <= line2Top) {
+    } else if (circleBottom < line1Top && circleBottom < line2Top) {
       return score;
-    } else if(circleLeft >= line1Right && circleRight <= line2Left) {
+    } else if(circleLeft > line1Right && circleRight < line2Left) {
       return score;
     } else {
       // Ends game when ball touches line
@@ -77,5 +75,15 @@ $(function() {
   });
 
   // Starts game
-  start();
+  // start();
+
+  // Function to show start button
+  function startButton() {
+    $("#start").click( function() {
+      $("#start").css("display", "none");
+      start();
+    })
+  }
+
+  startButton();
 });
