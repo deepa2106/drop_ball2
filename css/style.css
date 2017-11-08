@@ -39,7 +39,19 @@ p {
 
 #start {
   margin: auto;
-  height: 500px;
-  width: 500px;
+  padding: 50px;
   margin-top: 30px;
+  font-size: 60px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+aside {
+  padding: 50px;
+  display: inline-block;
+  width: 80%;
+
 }

@@ -81,6 +81,7 @@ $(function() {
   function startButton() {
     $("#start").click( function() {
       $("#start").css("display", "none");
+      $("aside").css("display", "none");
       start();
     })
   }
