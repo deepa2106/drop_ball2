@@ -1,20 +1,23 @@
 $(function() {
   // Variable to keep track of score
   var score=0;
-
+  // Variable to set animation time
+  var time = 24000;
   // Function to start game when game is over
   function reset() {
     // Reload page to refresh div positions
     location.reload();
     // Reset score to 0
     score = 0;
+    // Reset animation time back to 24000ms
+    time = 24000;
     // Start animation for the game
     start();
   }
 
   // Function to start the transition of the lines
   function start() {
-    $(".line").animate({top: '-3000px'}, 24000);
+    $(".line").animate({top: '-3000px'}, time);
   }
 
   // Function to check if ball has collided with the line
@@ -51,6 +54,8 @@ $(function() {
       return score;
     } else {
       // Ends game when ball touches line
+      // Sets time for animation to 0 to stop animation
+      time = 0;
       alert("Game over");
       reset();
     }
