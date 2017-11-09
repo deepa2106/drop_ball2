@@ -5,6 +5,8 @@ $(function() {
   var player1 = 0;
   // Variable to set animation time
   var time = 24000;
+  // Variable to check player turn
+  var firstPlayer = true;
 
 
   // Function to start game when game is over
@@ -117,8 +119,18 @@ $(function() {
 
   // Function to show start button
   function startButton() {
-    $("#start").click( function() {
-      $("#start").fadeOut();
+    $("#1player").click( function() {
+      $("#1player").fadeOut();
+      $("#2players").fadeOut();
+      $("aside").fadeOut();
+      firstPlayer = false;
+      // Ball moves when you click left key or right key
+      ballMovement();
+      start();
+    })
+    $("#2players").click( function() {
+      $("#1player").fadeOut();
+      $("#2players").fadeOut();
       $("aside").fadeOut();
       // Ball moves when you click left key or right key
       ballMovement();
