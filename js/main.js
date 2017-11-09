@@ -1,6 +1,7 @@
 $(function() {
   // Variable to keep track of score
   var score = 0;
+  // Vairable to keep track of player 1 Score.
   var player1 = 0;
   // Variable to set animation time
   var time = 24000;
@@ -15,19 +16,36 @@ $(function() {
     $("#start").click( function() {
       $("#start").css("display", "none");
       $("aside").css("display", "none");
-      // Reload page to refresh div positions
-      location.reload();
       // Reset score to 0
+      player1 = score;
       score = 0;
       // Reset animation time back to 24000ms
       time = 24000;
+      // Reload page to refresh div positions
+      // location.reload();
       start();
     });
   }
 
   // Function to start the transition of the lines
   function start() {
+    // Function that adds all lines to html
+    addLines();
     $(".line").animate({top: '-3000px'}, time);
+    // Checks collision function every 1ms
+    window.setInterval(function() {
+      $('#result').text(collision($('.circle')))
+    }, 1);
+
+    // Ball moves when you click left key or right key
+    $(document).keydown(function(e) {
+      if(e.keyCode == 37){
+        $(".circle").animate({marginLeft: "-=35px"}, 1 );
+      }
+      if(e.keyCode == 39){
+        $(".circle").animate({marginLeft: "+=35px"}, 1 );
+      }
+    });
   }
 
   // Function to check if ball has collided with the line
@@ -66,27 +84,28 @@ $(function() {
       // Ends game when ball touches line
       // Sets time for animation to 0 to stop animation
       time = 0;
+      console.log(player1);
       gameOver();
     }
   }
 
-  // Checks collision function every 1ms
-  window.setInterval(function() {
-    $('#result').text(collision($('.circle')))
-  }, 1);
-
-  // Ball moves when you click left key or right key
-  $(document).keydown(function(e) {
-    if(e.keyCode == 37){
-      $(".circle").animate({marginLeft: "-=35px"}, 1 );
-    }
-    if(e.keyCode == 39){
-      $(".circle").animate({marginLeft: "+=35px"}, 1 );
-    }
-  });
 
   // Starts game
   // start();
+
+  // Function to add lines
+  function addLines() {
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-2 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-8 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-3 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-7 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-5 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-5 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-9 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-1 line 2'></div></div>");
+    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-8 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-2 line 2'></div></div>");
+  }
 
   // Function to show start button
   function startButton() {
