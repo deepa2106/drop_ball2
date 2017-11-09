@@ -141,17 +141,19 @@ $(function() {
 
   // Function to add lines
   function addLines() {
-    $(".container").append("<div class='circle'></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-2 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-8 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-3 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-7 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-5 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-5 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-9 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-1 line 2'></div></div>");
-    $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-8 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-2 line 2'></div></div>");
+    for (var i = 0; i < 5; i++) {
+      $(".container").append("<div class='circle'></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-2 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-8 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-3 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-7 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-5 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-5 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-9 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-1 line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-8 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-2 line 2'></div></div>");
+    }
   }
 
   // Function to show start button
