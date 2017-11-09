@@ -6,31 +6,34 @@ $(function() {
   // Variable to set animation time
   var time = 24000;
 
-  var originalLines = $('.line').attr('style');
+
   // Function to start game when game is over
   function gameOver() {
     $('.line').stop();
-    $('.line').attr('style',originalLines);
-    $("#start").css("display", "inline-block").html("Restart");
-    $("aside").css("display", "inline-block").html("<h1>Game over!</h1>");
-    $("#start").click( function() {
-      $("#start").css("display", "none");
-      $("aside").css("display", "none");
-      // Reset score to 0
-      player1 = score;
-      score = 0;
-      // Reset animation time back to 24000ms
-      time = 24000;
-      // Reload page to refresh div positions
-      // location.reload();
-      start();
-    });
+    $("#restart").css("display", "inline-block");
+    $("aside").show().html("<h1>Game over!</h1>");
+    $("#restart").click(reset);
   }
 
-  // Function to start the transition of the lines
+  function reset() {
+    $("#restart").css("display", "none");
+    $("aside").css("display", "none");
+    // var initialContent = $(".container").html();
+    // Reset score to 0
+    player1 = score;
+    score = 0;
+    // Reset animation time back to 24000ms
+    time = 24000;
+    $(".container").empty();
+    $(".container").append("<p>Score: <span id='result'></span></p><button type='button' name='button' id='restart'>Restart</button><aside></aside>");
+    start();
+  }
+
+  // Starts game by adding line position and transition
   function start() {
     // Function that adds all lines to html
     addLines();
+    // Function to start the transition of the lines
     $(".line").animate({top: '-3000px'}, time);
     // Checks collision function every 1ms
     window.setInterval(function() {
@@ -84,7 +87,6 @@ $(function() {
       // Ends game when ball touches line
       // Sets time for animation to 0 to stop animation
       time = 0;
-      console.log(player1);
       gameOver();
     }
   }
@@ -95,6 +97,7 @@ $(function() {
 
   // Function to add lines
   function addLines() {
+    $(".container").append("<div class='circle'></div>");
     $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
     $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
     $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
@@ -110,8 +113,8 @@ $(function() {
   // Function to show start button
   function startButton() {
     $("#start").click( function() {
-      $("#start").css("display", "none");
-      $("aside").css("display", "none");
+      $("#start").fadeOut();
+      $("aside").fadeOut();
       start();
     })
   }
