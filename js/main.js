@@ -1,6 +1,7 @@
 $(function() {
   // Variable to keep track of score
-  var score=0;
+  var score = 0;
+  var player1 = 0;
   // Variable to set animation time
   var time = 24000;
 
@@ -15,7 +16,7 @@ $(function() {
       $("#start").css("display", "none");
       $("aside").css("display", "none");
       // Reload page to refresh div positions
-      // location.reload();
+      location.reload();
       // Reset score to 0
       score = 0;
       // Reset animation time back to 24000ms
