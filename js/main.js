@@ -8,14 +8,56 @@ $(function() {
   // Variable to check player turn
   var firstPlayer = true;
 
+  var twoPlayers = true;
+
 
   // Function to start game when game is over
   function gameOver() {
     $('.line').stop();
     $('.circle').stop();
+    if(twoPlayers === false) {
+      onePlayerGameOver();
+    } else {
+      twoPlayersGameOver();
+    }
+  }
+
+  function onePlayerGameOver() {
+    $(".line").fadeOut();
+    $(".circle").fadeOut();
     $("#restart").css("display", "inline-block");
     $("aside").show().html("<h1>Game over!</h1>");
     $("#restart").click(reset);
+  }
+
+  function twoPlayersGameOver() {
+    $(".line").fadeOut();
+    $(".circle").fadeOut();
+    if(firstPlayer === true) {
+      player1 = score;
+      $("#restart").css("display", "inline-block").html("Start");
+      $("aside").show().html("<h1>Game over! Player 2, press start to begin</h1>");
+      firstPlayer = false;
+      $("#restart").click(reset);
+    } else {
+      switch (score) {
+        case score > player1:
+          $("aside").show().html("<h1>Game over! Player 2 wins!</h1>");
+          break;
+        case score < player1:
+          $("aside").show().html("<h1>Game over! Player 1 wins!</h1>");
+          break;
+        default:
+          $("aside").show().html("Error");
+          break;
+      }
+      $("#restart").css("display", "inline-block").html("Play again");
+      $("#restart").click(reload);
+    }
+  }
+
+  function reload() {
+    location.reload();
   }
 
   function reset() {
@@ -23,7 +65,6 @@ $(function() {
     $("aside").fadeOut();
     // var initialContent = $(".container").html();
     // Reset score to 0
-    player1 = score;
     score = 0;
     // Reset animation time back to 24000ms
     time = 24000;
@@ -123,7 +164,7 @@ $(function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
       $("aside").fadeOut();
-      firstPlayer = false;
+      twoPlayers = false;
       // Ball moves when you click left key or right key
       ballMovement();
       start();
