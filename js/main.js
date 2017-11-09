@@ -40,16 +40,12 @@ $(function() {
       firstPlayer = false;
       $("#restart").click(reset);
     } else {
-      switch (score) {
-        case score > player1:
-          $("aside").show().html("<h1>Game over! Player 2 wins!</h1>");
-          break;
-        case score < player1:
-          $("aside").show().html("<h1>Game over! Player 1 wins!</h1>");
-          break;
-        default:
-          $("aside").show().html("Error");
-          break;
+      if(score > player1) {
+        $("aside").show().html("<h1>Game over! Player 2 wins!</h1>");
+      } else if (score < player1) {
+        $("aside").show().html("<h1>Game over! Player 1 wins!</h1>");
+      } else {
+        $("aside").show().html("<h1>Game over! Player 1 and player 2 drew!</h1>");
       }
       $("#restart").css("display", "inline-block").html("Play again");
       $("#restart").click(reload);
