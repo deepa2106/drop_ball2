@@ -7,12 +7,15 @@ $(function() {
   var time = 100000;
   // Variable to check player turn
   var firstPlayer = true;
-
+  // Variable to check number of players
   var twoPlayers = true;
-
+  // Variable to start animation
+  var intervalId;
 
   // Function to start game when game is over
   function gameOver() {
+    // Stops animations
+    window.clearInterval(intervalId);
     $('.line').stop();
     $('.circle').stop();
     if(twoPlayers === false) {
@@ -22,17 +25,22 @@ $(function() {
     }
   }
 
+  // Game over popup for 1 platyer game
   function onePlayerGameOver() {
+    // Resets page after displaying score
     $(".line").fadeOut();
     $(".circle").fadeOut();
     $("#restart").css("display", "inline-block").html("Play again");
     $("aside").show().html("<h1>Game over!</h1>");
+    $("aside").append("<h1>Score: " + score + "</h1>");
     $("#restart").click(reload);
   }
 
+  // Game over popup for 2 player game
   function twoPlayersGameOver() {
     $(".line").fadeOut();
     $(".circle").fadeOut();
+    // Condition to check if second player has played game
     if(firstPlayer === true) {
       player1 = score;
       $("#restart").css("display", "inline-block").html("Start");
@@ -52,10 +60,12 @@ $(function() {
     }
   }
 
+  // Reloads page to restart game
   function reload() {
     location.reload();
   }
 
+  // Resets divs on screen
   function reset() {
     $("#restart").fadeOut();
     $("aside").fadeOut();
@@ -65,10 +75,13 @@ $(function() {
     // Reset animation time back to 100000ms
     time = 100000;
     $(".container").empty();
-    $(".container").append("<p>Score: <span id='result'></span></p><button type='button' name='button' id='restart'>Restart</button><aside></aside>");
+    $(".container").append("<p>Score: <span id='result'></span></p>");
+    $(".container").append("<p>Player 1: " + player1 + "</p>");
+    $(".container").append("<button type='button' name='button' id='restart'>Restart</button><aside></aside>");
     start();
   }
 
+  // Popup for when whole game is completed
   function gameComplete() {
     $(".line").fadeOut();
     $(".circle").fadeOut();
@@ -84,7 +97,7 @@ $(function() {
     // Function to start the transition of the lines
     $(".line").animate({top: '-15000px'}, time);
     // Checks collision function every 1ms
-    window.setInterval(function() {
+    intervalId = window.setInterval(function() {
       $('#result').text(collision($('.circle')))
     }, 1);
 
@@ -146,14 +159,10 @@ $(function() {
     }
   }
 
-
-  // Starts game
-  // start();
-
   // Function to add lines
   function addLines() {
+    $(".container").append("<div class='circle'></div>");
     for (var i = 0; i < 5; i++) {
-      $(".container").append("<div class='circle'></div>");
       $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
       $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
       $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
@@ -169,6 +178,7 @@ $(function() {
 
   // Function to show start button
   function startButton() {
+    // Option for 1 player
     $("#1player").click( function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
@@ -178,6 +188,7 @@ $(function() {
       ballMovement();
       start();
     })
+    // Option for 2 players
     $("#2players").click( function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
@@ -188,5 +199,6 @@ $(function() {
     })
   }
 
+  // start game
   startButton();
 });

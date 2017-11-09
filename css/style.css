@@ -3,10 +3,12 @@ html, body {
   overflow: hidden;
 }
 
+/*#fd7474*/
+
 body {
   background-color: black;
   border: 5px solid black;
-  color: white;
+  color: #3dff3d;
 }
 
 p {
@@ -34,7 +36,7 @@ aside {
 }
 
 .line {
-  background-color: yellow;
+  background-color: #69dbff;
   height: 5px;
 }
 
@@ -49,6 +51,7 @@ aside {
 }
 
 .start {
+  background-color: #66eefc;
   margin: auto;
   padding: 50px;
   margin-top: 30px;
