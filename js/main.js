@@ -1,7 +1,7 @@
 $(function() {
   // Variable to keep track of score
   var score = 0;
-  // Vairable to keep track of player 1 Score.
+  // Variable to keep track of player 1 Score.
   var player1 = 0;
   // Variable to set animation time
   var time = 24000;
@@ -10,14 +10,15 @@ $(function() {
   // Function to start game when game is over
   function gameOver() {
     $('.line').stop();
+    $('.circle').stop();
     $("#restart").css("display", "inline-block");
     $("aside").show().html("<h1>Game over!</h1>");
     $("#restart").click(reset);
   }
 
   function reset() {
-    $("#restart").css("display", "none");
-    $("aside").css("display", "none");
+    $("#restart").fadeOut();
+    $("aside").fadeOut();
     // var initialContent = $(".container").html();
     // Reset score to 0
     player1 = score;
@@ -40,13 +41,17 @@ $(function() {
       $('#result').text(collision($('.circle')))
     }, 1);
 
-    // Ball moves when you click left key or right key
+  }
+
+
+  //Function to enable ball to move on key press
+  function ballMovement() {
     $(document).keydown(function(e) {
       if(e.keyCode == 37){
-        $(".circle").animate({marginLeft: "-=35px"}, 1 );
+        $(".circle").animate({marginLeft: "-=35px"}, 1);
       }
       if(e.keyCode == 39){
-        $(".circle").animate({marginLeft: "+=35px"}, 1 );
+        $(".circle").animate({marginLeft: "+=35px"}, 1);
       }
     });
   }
@@ -115,6 +120,8 @@ $(function() {
     $("#start").click( function() {
       $("#start").fadeOut();
       $("aside").fadeOut();
+      // Ball moves when you click left key or right key
+      ballMovement();
       start();
     })
   }
