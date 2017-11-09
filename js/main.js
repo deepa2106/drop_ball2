@@ -3,14 +3,25 @@ $(function() {
   var score=0;
   // Variable to set animation time
   var time = 24000;
+
+  var originalLines = $('.line').attr('style');
   // Function to start game when game is over
-  function reset() {
-    // Reload page to refresh div positions
-    location.reload();
-    // Reset score to 0
-    score = 0;
-    // Reset animation time back to 24000ms
-    time = 24000;
+  function gameOver() {
+    $('.line').stop();
+    $('.line').attr('style',originalLines);
+    $("#start").css("display", "inline-block").html("Restart");
+    $("aside").css("display", "inline-block").html("<h1>Game over!</h1>");
+    $("#start").click( function() {
+      $("#start").css("display", "none");
+      $("aside").css("display", "none");
+      // Reload page to refresh div positions
+      // location.reload();
+      // Reset score to 0
+      score = 0;
+      // Reset animation time back to 24000ms
+      time = 24000;
+      start();
+    });
   }
 
   // Function to start the transition of the lines
@@ -26,8 +37,8 @@ $(function() {
     // Stores exact position of ball
     var circleLeft = $circle.offset().left;
     var circleTop = $circle.offset().top;
-    var circleHeight = $circle.outerHeight(true);
-    var circleWidth = $circle.outerWidth(true);
+    var circleHeight = $circle.outerHeight();
+    var circleWidth = $circle.outerWidth();
     var circleBottom = circleTop + circleHeight;
     var circleRight = circleLeft + circleWidth;
     // Stores exact position of line on the  left
@@ -54,8 +65,7 @@ $(function() {
       // Ends game when ball touches line
       // Sets time for animation to 0 to stop animation
       time = 0;
-      alert("Game over");
-      reset();
+      gameOver();
     }
   }
 
