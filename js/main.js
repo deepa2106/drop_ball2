@@ -4,7 +4,7 @@ $(function() {
   // Variable to keep track of player 1 Score.
   var player1 = 0;
   // Variable to set animation time
-  var time = 24000;
+  var time = 100000;
   // Variable to check player turn
   var firstPlayer = true;
 
@@ -62,8 +62,8 @@ $(function() {
     // var initialContent = $(".container").html();
     // Reset score to 0
     score = 0;
-    // Reset animation time back to 24000ms
-    time = 24000;
+    // Reset animation time back to 100000ms
+    time = 100000;
     $(".container").empty();
     $(".container").append("<p>Score: <span id='result'></span></p><button type='button' name='button' id='restart'>Restart</button><aside></aside>");
     start();
@@ -74,7 +74,7 @@ $(function() {
     // Function that adds all lines to html
     addLines();
     // Function to start the transition of the lines
-    $(".line").animate({top: '-3000px'}, time);
+    $(".line").animate({top: '-15000px'}, time);
     // Checks collision function every 1ms
     window.setInterval(function() {
       $('#result').text(collision($('.circle')))
