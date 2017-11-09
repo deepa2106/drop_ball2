@@ -69,6 +69,14 @@ $(function() {
     start();
   }
 
+  function gameComplete() {
+    $(".line").fadeOut();
+    $(".circle").fadeOut();
+    $("#restart").css("display", "inline-block").html("Play again");
+    $("aside").show().html("<h1>Congratulations! You have completed the game.</h1>");
+    $("#restart").click(reset);
+  }
+
   // Starts game by adding line position and transition
   function start() {
     // Function that adds all lines to html
@@ -120,7 +128,10 @@ $(function() {
     var line2Height = $line2.offsetHeight;
     var line2Bottom = line2Top + line2Height;
     // Returns score only if ball does not touch line
-    if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
+    if(score === 50)
+    {
+      gameComplete();
+    } else if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
       // Adds 1 to score when it passes through the gap
       score++;
     } else if (circleBottom < line1Top && circleBottom < line2Top) {
