@@ -25,9 +25,9 @@ $(function() {
   function onePlayerGameOver() {
     $(".line").fadeOut();
     $(".circle").fadeOut();
-    $("#restart").css("display", "inline-block");
+    $("#restart").css("display", "inline-block").html("Play again");
     $("aside").show().html("<h1>Game over!</h1>");
-    $("#restart").click(reset);
+    $("#restart").click(reload);
   }
 
   function twoPlayersGameOver() {
