@@ -196,7 +196,7 @@ $(function() {
       // Ball moves when you click left key or right key
       ballMovement();
       start();
-    })
+    });
   }
 
   // start game
