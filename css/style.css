@@ -1,11 +1,26 @@
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 body {
-  background-color: grey;
+  background-color: black;
   border: 5px solid black;
+  color: #3dff3d;
+}
+
+p {
+  font-size: 50px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+aside {
+  padding: 50px;
+  display: inline-block;
+  width: 100%;
 }
 
 .space {
@@ -14,12 +29,12 @@ body {
 }
 
 .gap {
-  background-color: grey;
+  background-color: black;
   height: 5px;
 }
 
 .line {
-  background-color: black;
+  background-color: #69dbff;
   height: 5px;
 }
 
@@ -33,6 +48,22 @@ body {
   left:50%;
 }
 
-p {
-  font-size: 50px;
+.start {
+  background-color: #66eefc;
+  margin: auto;
+  padding: 50px;
+  margin-top: 30px;
+  font-size: 60px;
+  display: inline-block;
+  color: black;
+}
+
+#restart {
+  background-color: #66eefc;
+  margin: auto;
+  padding: 50px;
+  margin-top: 30px;
+  font-size: 60px;
+  display: none;
+  color: black;
 }
