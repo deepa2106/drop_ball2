@@ -199,6 +199,7 @@ $(function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
       $("aside").fadeOut();
+      $('.title').fadeOut();
       twoPlayers = false;
       // Ball moves when you click left key or right key
       start();
@@ -209,6 +210,7 @@ $(function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
       $("aside").fadeOut();
+      $('.title').fadeOut();
       // Ball moves when you click left key or right key
       start();
       ballMovement();
