@@ -58,6 +58,23 @@ aside {
   color: black;
 }
 
+.controlButtons {
+  background-color: #66eefc;
+  margin: auto;
+  padding: 20px;
+  font-size: 40px;
+  display: inline-block;
+  color: black;
+}
+
+#leftButton {
+  float: left;
+}
+
+#rightButton {
+  float: right;
+}
+
 #restart {
   background-color: #66eefc;
   margin: auto;
