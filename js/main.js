@@ -30,6 +30,7 @@ $(function() {
     // Resets page after displaying score
     $(".line").fadeOut();
     $(".circle").fadeOut();
+    $(".controls").fadeOut();
     $("#restart").css("display", "inline-block").html("Play again");
     $("aside").show().html("<h1>Game over!</h1>");
     $("aside").append("<h1>Score: " + score + "</h1>");
@@ -40,6 +41,9 @@ $(function() {
   function twoPlayersGameOver() {
     $(".line").fadeOut();
     $(".circle").fadeOut();
+    $(".controls").fadeOut();
+    $(".space").fadeOut();
+    $(".row").fadeOut();
     // Condition to check if second player has played game
     if(firstPlayer === true) {
       player1 = score;
@@ -48,6 +52,7 @@ $(function() {
       firstPlayer = false;
       $("#restart").click(reset);
     } else {
+      $('.container').append('<aside></aside>');
       if(score > player1) {
         $("aside").show().html("<h1>Game over! Player 2 wins!</h1>");
       } else if (score < player1) {
@@ -69,15 +74,13 @@ $(function() {
   function reset() {
     $("#restart").fadeOut();
     $("aside").fadeOut();
-    // var initialContent = $(".container").html();
     // Reset score to 0
     score = 0;
     // Reset animation time back to 100000ms
     time = 100000;
     $(".container").empty();
-    $(".container").append("<p>Score: <span id='result'></span></p>");
-    $(".container").append("<p>Player 1: " + player1 + "</p>");
-    $(".container").append("<button type='button' name='button' id='restart'>Restart</button><aside></aside>");
+    $(".container").append("<p>Player 1: " + player1 + ", Score: <span id='result'></span></p>");
+    $(".container").append("<button type='button' name='button' id='restart'>Restart</button>");
     start();
   }
 
@@ -94,6 +97,8 @@ $(function() {
   function start() {
     // Function that adds all lines to html
     addLines();
+    // Enable ball movement by controlButtons
+    buttonMovement();
     // Function to start the transition of the lines
     $(".line").animate({top: '-15000px'}, time);
     // Checks collision function every 1ms
@@ -113,6 +118,16 @@ $(function() {
       if(e.keyCode == 39){
         $(".circle").animate({marginLeft: "+=35px"}, 1);
       }
+    });
+  }
+
+  // Function to enable ball move on button click
+  function buttonMovement() {
+    $("#leftButton").click( function() {
+      $(".circle").animate({marginLeft: "-=35px"}, 1);
+    });
+    $("#rightButton").click( function() {
+      $(".circle").animate({marginLeft: "+=35px"}, 1);
     });
   }
 
@@ -161,6 +176,7 @@ $(function() {
 
   // Function to add lines
   function addLines() {
+    $(".container").append("<div class='controls'><button type='button' name='button' id='leftButton' class='controlButtons'>Left</button><button type='button' name='button' id='rightButton' class='controlButtons'>Right</button></div>");
     $(".container").append("<div class='circle'></div>");
     for (var i = 0; i < 5; i++) {
       $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
@@ -183,19 +199,21 @@ $(function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
       $("aside").fadeOut();
+      $('.title').fadeOut();
       twoPlayers = false;
       // Ball moves when you click left key or right key
-      ballMovement();
       start();
+      ballMovement();
     })
     // Option for 2 players
     $("#2players").click( function() {
       $("#1player").fadeOut();
       $("#2players").fadeOut();
       $("aside").fadeOut();
+      $('.title').fadeOut();
       // Ball moves when you click left key or right key
-      ballMovement();
       start();
+      ballMovement();
     });
   }
 

@@ -23,6 +23,13 @@ aside {
   width: 100%;
 }
 
+.title {
+  color: red;
+  font-size: 80px;
+  text-align: center;
+  text-decoration: underline;
+}
+
 .space {
 
   height: 195px;
@@ -56,6 +63,25 @@ aside {
   font-size: 60px;
   display: inline-block;
   color: black;
+  border-radius: 20px;
+}
+
+.controlButtons {
+  background-color: #66eefc;
+  margin: auto;
+  padding: 20px;
+  font-size: 40px;
+  display: inline-block;
+  color: black;
+  border-radius: 20px;
+}
+
+#leftButton {
+  float: left;
+}
+
+#rightButton {
+  float: right;
 }
 
 #restart {
@@ -66,4 +92,5 @@ aside {
   font-size: 60px;
   display: none;
   color: black;
+  border-radius: 20px;
 }
