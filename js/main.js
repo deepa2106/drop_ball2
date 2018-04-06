@@ -178,17 +178,10 @@ $(function() {
   function addLines() {
     $(".container").append("<div class='controls'><button type='button' name='button' id='leftButton' class='controlButtons'>Left</button><button type='button' name='button' id='rightButton' class='controlButtons'>Right</button></div>");
     $(".container").append("<div class='circle'></div>");
-    for (var i = 0; i < 5; i++) {
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-4 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-6 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-2 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-8 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-6 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-4 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-3 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-7 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-5 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-5 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-7 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-3 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-9 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-1 line 2'></div></div>");
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-8 line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-2 line 2'></div></div>");
+    for (var i = 0; i < 50; i++) {
+		  var pos1 = Math.floor((Math.random() * 10) + 1);
+		  var pos2 = 10 - pos1;
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-" + pos1 + " line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-"+ pos2 + " line 2'></div></div>");
     }
   }
 
