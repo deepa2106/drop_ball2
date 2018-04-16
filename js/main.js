@@ -161,7 +161,11 @@ $(function() {
       gameComplete();
     } else if(line1Bottom <= circleTop && line2Bottom <= circleTop) {
       // Adds 1 to score when it passes through the gap
+      $('.1.cp' + score).removeClass('pink').addClass('green');
+      $('.2.cp' + score).removeClass('pink').addClass('green');
       score++;
+      $('.1.cp' + score).removeClass('blue').addClass('pink');
+      $('.2.cp' + score).removeClass('blue').addClass('pink');
     } else if (circleBottom < line1Top && circleBottom < line2Top) {
       return score;
     } else if(circleLeft > line1Right && circleRight < line2Left) {
@@ -181,8 +185,10 @@ $(function() {
     for (var i = 0; i < 50; i++) {
 		  var pos1 = Math.floor((Math.random() * 9) + 1);
 		  var pos2 = 10 - pos1;
-      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-" + pos1 + " line 1'></div><div class='col-xs-2 gap'></div><div class='col-xs-"+ pos2 + " line 2'></div></div>");
+      $(".container").append("<div class='row'><div class='col-xs-12 space'></div></div><div class='row'><div class='col-xs-" + pos1 + " blue line 1 cp" + i +"'></div><div class='col-xs-2 gap'></div><div class='col-xs-"+ pos2 + " blue line 2 cp" + i + "'></div></div>");
     }
+    $('.1.cp0').removeClass('blue').addClass('pink');
+    $('.2.cp0').removeClass('blue').addClass('pink');
   }
 
   // Function to show start button
