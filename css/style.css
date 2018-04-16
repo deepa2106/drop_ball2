@@ -41,8 +41,19 @@ aside {
 }
 
 .line {
-  background-color: #69dbff;
   height: 5px;
+}
+
+.blue {
+  background-color: #69dbff;
+}
+
+.pink {
+  background-color: #FF1493;
+}
+
+.green {
+  background-color: #14ff80;
 }
 
 .circle {
